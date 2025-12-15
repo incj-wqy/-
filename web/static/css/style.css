@@ -1,0 +1,128 @@
+/* static/css/style.css */
+:root {
+    --primary-color: #3498db;
+    --primary-dark: #2980b9;
+    --secondary-color: #ecf0f1;
+    --text-color: #2c3e50;
+    --text-light: #7f8c8d;
+    --danger-color: #e74c3c;
+    --success-color: #2ecc71;
+    --white: #ffffff;
+    --shadow: 0 2px 10px rgba(0,0,0,0.05);
+    --border-radius: 8px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a { text-decoration: none; color: inherit; transition: color 0.2s; }
+a:hover { color: var(--primary-color); }
+ul { list-style: none; }
+
+/* 布局容器 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    width: 100%;
+}
+
+.main-content { flex: 1; }
+
+/* 标题与排版 */
+h2 { font-size: 24px; margin-bottom: 20px; border-left: 5px solid var(--primary-color); padding-left: 15px; }
+h3 { font-size: 18px; margin: 20px 0 10px; color: var(--text-color); }
+
+/* 卡片风格 */
+.card {
+    background: var(--white);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+}
+
+/* 按钮风格 */
+.btn, input[type="submit"], button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+    text-align: center;
+}
+.btn:hover, input[type="submit"]:hover, button:hover { background-color: var(--primary-dark); color: white; }
+.btn-danger { background-color: var(--danger-color); }
+.btn-danger:hover { background-color: #c0392b; }
+.btn-sm { padding: 5px 10px; font-size: 12px; }
+
+/* 表单元素 */
+input[type="text"], input[type="password"], input[type="email"], input[type="number"], select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+}
+input[type="text"]:focus, input[type="password"]:focus { border-color: var(--primary-color); }
+
+/* 表格风格 */
+table { width: 100%; border-collapse: collapse; margin-bottom: 20px; background: white; }
+th, td { padding: 15px; text-align: left; border-bottom: 1px solid #eee; }
+th { background-color: #f8f9fa; font-weight: 600; color: var(--text-light); }
+tr:hover { background-color: #fcfcfc; }
+
+/* Header 样式 */
+.site-header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); padding: 0; position: sticky; top: 0; z-index: 1000; }
+.header-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 70px; padding: 0 20px; }
+.site-logo a { font-size: 24px; font-weight: bold; color: var(--primary-color); display: flex; align-items: center; gap: 10px; }
+.search-input-group { display: flex; border: 1px solid #ddd; border-radius: 20px; overflow: hidden; }
+.search-input-group input { border: none; margin: 0; padding: 8px 15px; width: 250px; }
+.search-input-group button { background: none; color: var(--text-light); padding: 0 15px; margin: 0; }
+.search-input-group button:hover { color: var(--primary-color); background: none; }
+.main-nav { display: flex; gap: 25px; align-items: center; }
+.nav-link { font-weight: 500; display: flex; align-items: center; gap: 5px; color: #555; }
+
+/* 下拉菜单 */
+.dropdown { position: relative; }
+.dropdown-menu {
+    display: none; position: absolute; top: 100%; right: 0;
+    background: white; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    min-width: 150px; border-radius: 4px; padding: 10px 0; z-index: 100;
+}
+.dropdown-menu.show { display: block; }
+.dropdown-menu a { display: block; padding: 10px 20px; font-size: 14px; }
+.dropdown-menu a:hover { background: #f8f9fa; }
+
+/* Footer */
+.site-footer { background: #2c3e50; color: #bdc3c7; padding: 40px 0 20px; margin-top: auto; }
+.footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding: 0 20px; }
+.footer-section h3 { color: white; font-size: 18px; margin-bottom: 20px; border: none; padding: 0; }
+.footer-section ul li { margin-bottom: 10px; }
+.copyright { text-align: center; margin-top: 40px; border-top: 1px solid #34495e; padding-top: 20px; font-size: 14px; }
+
+/* 商品网格 (Product List & Index) */
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+.product-card { background: white; border-radius: 8px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; border: 1px solid #eee; text-align: center; padding-bottom: 15px;}
+.product-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+.product-card img { width: 100%; height: 200px; object-fit: cover; }
+.product-card .name { font-weight: bold; margin: 10px 10px 5px; height: 44px; overflow: hidden; font-size: 15px; }
+.product-card .price { color: var(--danger-color); font-size: 18px; font-weight: bold; margin-bottom: 10px; }
+
+/* 登录/注册特定样式 */
+.auth-container { max-width: 400px; margin: 50px auto; background: white; padding: 40px; border-radius: 8px; box-shadow: var(--shadow); }
+.auth-header { text-align: center; margin-bottom: 30px; }
